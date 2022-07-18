@@ -27,9 +27,9 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: ${postgres.user}         # outline
-      POSTGRES_PASSWORD: ${postgres.password} # 6q2DT2s67c
-      POSTGRES_DB: ${postgres.db}             # outline
+      POSTGRES_USER: ${postgres.user}
+      POSTGRES_PASSWORD: ${postgres.password}
+      POSTGRES_DB: ${postgres.db}
     healthcheck:
       test: ["CMD", "postgres_isready -U ${postgres.user}"]
       interval: 30s
