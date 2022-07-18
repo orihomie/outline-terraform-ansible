@@ -33,12 +33,37 @@
     owner: root
     mode: '755'
 
+- block:
+
+  - name: Create db
+    shell: 
+      cmd: |
+        docker-compose run --rm outline yarn sequelize db:create --env=production-ssl-disabled
+      chdir: /home/outline
+    register: output
+
+  - debug:
+      var: output
+
+  - name: Migrate db
+    shell: 
+      cmd: |
+        docker-compose run --rm outline yarn sequelize db:migrate --env=production-ssl-disabled
+      chdir: /home/outline
+    register: output
+
+  - debug:
+      var: output
+
+  when: 
+    - "{{ first_time }}" == "true"
+
 - name: Start outline
-  shell: |
-    cd /home/outline
-    docker-compose down
-    ./setup-outline-db.sh || true
-    docker-compose up -d
+  shell: 
+    cmd: |
+      docker-compose down || true
+      docker-compose up -d
+    chdir: /home/outline
   register: output
 
 - debug:
