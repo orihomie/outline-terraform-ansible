@@ -31,7 +31,7 @@ services:
       POSTGRES_PASSWORD: ${postgres.password} # 6q2DT2s67c
       POSTGRES_DB: ${postgres.db}             # outline
     healthcheck:
-      test: ["CMD", "postgres_isready -U outline"]
+      test: ["CMD", "postgres_isready -U ${postgres.user}"]
       interval: 30s
       timeout: 20s
       retries: 3
