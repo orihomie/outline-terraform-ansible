@@ -2,16 +2,16 @@
 
 # Generate a hex-encoded 32-byte random key. You should use `openssl rand -hex 32`
 # in your terminal to generate a random value.
-SECRET_KEY=${secret_key}                                                                            #02eacbb577a0ee13ab5e537662867ac9eb91d30c12de9b896399ba8a6bb78fde
+SECRET_KEY=${secret_key}
 
 # Generate a unique random key. The format is not important but you could still use
 # `openssl rand -hex 32` in your terminal to produce this.
-UTILS_SECRET=${utils_secret}                                                                        #fbaf98c81cd056572bd7ea4cd695c41855e30584085e3631707fc70b28718639
+UTILS_SECRET=${utils_secret}
 
 # For production point these at your databases, in development the default
 # should work out of the box.
-DATABASE_URL=${database_url}                                                                        #postgres://outline:6q2DT2s67c@postgres:5432/outline
-DATABASE_URL_TEST=${database_test_url}                                                              #postgres://outline:6q2DT2s67c@postgres:5432/outline-test
+DATABASE_URL=${database.url}
+DATABASE_URL_TEST=${database.test_url}
 DATABASE_CONNECTION_POOL_MIN=
 DATABASE_CONNECTION_POOL_MAX=
 # Uncomment this to disable SSL for connecting to Postgres

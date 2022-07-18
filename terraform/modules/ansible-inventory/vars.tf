@@ -15,6 +15,14 @@ variable "env_file" {
     type        = string
 }
 
+variable "secret_key" {
+    type        = string
+}
+
+variable "utils_secret" {
+    type        = string
+}
+
 variable "outline" {}
 variable "postgres" {}
 variable "minio" {}

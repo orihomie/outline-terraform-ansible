@@ -13,13 +13,21 @@ resource "local_file" "ansible_cfg" {
   filename = "${path.root}/ansible.cfg"
 }
 
+locals {
+  database = {
+    url = "postgres://${postgres.user}:${postgres.password}@postgres:${postgres.port}/${postgres.db}",
+    test_url = "postgres://${postgres_test.user}:${postgres_test.password}@postgres:${postgres.port}/${postgres_test.db}"
+  }
+}
+
 resource "local_file" "docker_env" {
   content = templatefile("${path.module}/templates/docker.env.tpl", {
-    env_file: var.env_file
-    outline: var.outline
-    postgres: var.postgres
-    minio: var.minio
+    env_file:     var.env_file
+    outline:      var.outline
+    postgres:     var.postgres
+    minio:        var.minio
     https_portal: var.https_portal
+    database:     local.database
   })
   filename = "${path.root}/docker.env"
 }
