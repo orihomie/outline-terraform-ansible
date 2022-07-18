@@ -73,9 +73,9 @@ SLACK_SECRET=get_the_secret_of_above_key
 #
 # When configuring the Client ID, add an Authorized redirect URI:
 # https://<URL>/auth/google.callback
-GOOGLE_CLIENT_ID=${google.client_id}
-GOOGLE_CLIENT_SECRET=${google.client_secret}
-GOOGLE_ALLOWED_DOMAINS=${google.allowed_domains}
+GOOGLE_CLIENT_ID=${outline.auth.google.client_id}
+GOOGLE_CLIENT_SECRET=${outline.auth.google.client_secret}
+GOOGLE_ALLOWED_DOMAINS=${outline.auth.google.allowed_domains}
 
 # To configure Microsoft/Azure auth, you'll need to create an OAuth Client. See
 # the guide for details on setting up your Azure App:
