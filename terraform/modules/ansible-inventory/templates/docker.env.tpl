@@ -27,8 +27,8 @@ REDIS_URL=${redis.url}
 
 # URL should point to the fully qualified, publicly accessible URL. If using a
 # proxy the port in URL and PORT may be different.
-URL=${outline.url}                                                                                  #https://wiki.xpdev.tech
-PORT=${outline.port}                                                                                #3000
+URL=${outline.url}
+PORT=${outline.port}
 
 # See [documentation](docs/SERVICES.md) on running a separate collaboration
 # server, for normal operation this does not need to be set.
