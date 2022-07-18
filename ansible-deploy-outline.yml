@@ -6,4 +6,4 @@
     - role: ./ansible/roles/deploy_outline
       vars:
         docker_compose_version: "v2.6.1"
-
+        apply_migrations: "false"

@@ -56,7 +56,7 @@
       var: output
 
   when: 
-    - "{{ first_time }}" == "true"
+    - "{{ apply_migrations }}" == "true"
 
 - name: Start outline
   shell: 
