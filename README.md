@@ -1,6 +1,7 @@
 # Outline Terraform Ansible
 
-Automated deployment of Outline, a modern knowledge base, using Terraform and Ansible.
+Automated deployment of Outline, a modern knowledge base, using Terraform and Ansible.<br>
+There's [another](https://github.com/rjsgn/outline-terraform-ansible) repo called such and I've created this one because it didn't helped me to achieve my purposes.
 
 ## Deployment 
 
