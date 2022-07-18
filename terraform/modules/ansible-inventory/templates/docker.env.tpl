@@ -18,7 +18,7 @@ DATABASE_CONNECTION_POOL_MAX=
 PGSSLMODE=disable
 
 # For redis you can either specify an ioredis compatible url like this
-REDIS_URL=${redis_url}                                                                              #redis://redis:6379
+REDIS_URL=${redis.url}
 # or alternatively, if you would like to provide addtional connection options,
 # use a base64 encoded JSON connection option object. Refer to the ioredis documentation
 # for a list of available options.

@@ -23,6 +23,7 @@ variable "utils_secret" {
     type        = string
 }
 
+variable "redis" {}
 variable "outline" {}
 variable "postgres" {}
 variable "minio" {}
