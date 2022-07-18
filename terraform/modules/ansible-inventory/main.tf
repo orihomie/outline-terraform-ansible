@@ -22,8 +22,11 @@ locals {
 
 resource "local_file" "docker_env" {
   content = templatefile("${path.module}/templates/docker.env.tpl", {
+    secret_key:   var.secret_key
+    utils_secret: var.utils_secret
     env_file:     var.env_file
     outline:      var.outline
+    redis:        var.redis
     postgres:     var.postgres
     minio:        var.minio
     https_portal: var.https_portal
