@@ -1,5 +1,11 @@
 # Local .terraform directories
 **/.terraform/*
+**/.terraform.lock.hcl
+
+**/docker-compose.yml
+**/docker.env
+**/hosts.cfg
+**/ansible.cfg
 
 # .tfstate files
 *.tfstate
