@@ -1,0 +1,7 @@
+---
+- name: deploy outline
+  hosts: outline 
+  become: true
+  roles:
+    - role: ./ansible/roles/deploy_outline
+
