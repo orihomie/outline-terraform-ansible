@@ -1,0 +1,45 @@
+---
+- name: Check if docker installed
+  shell: |
+    docker
+  register: results
+  failed_when:
+    - "'not found' in results.stdout"
+
+- name: Install docker-compose from official github repo
+  get_url:
+    url: https://github.com/docker/compose/releases/download/v2.6.1/docker-compose-linux-x86_64 
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'
+
+- name: Copy env
+  ansible.builtin.copy:
+    src: docker.env
+    dest: /home/outline/docker.env
+    owner: root
+    mode: '777'
+
+- name: Copy compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /home/outline/docker-compose.yml
+    owner: root
+    mode: '777'
+
+- name: Copy setup-db script
+  ansible.builtin.copy:
+    src: setup-outline-db.sh
+    dest: /home/outline/setup-outline-db.sh
+    owner: root
+    mode: '755'
+
+- name: Start outline
+  shell: |
+    cd /home/outline
+    docker-compose down
+    ./setup-outline-db.sh || true
+    docker-compose up -d
+  register: output
+
+- debug:
+    var: output
