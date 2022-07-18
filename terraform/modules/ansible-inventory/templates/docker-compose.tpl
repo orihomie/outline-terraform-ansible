@@ -40,7 +40,7 @@ services:
     image: ${minio.image}
     env_file: ${env_file}
     entrypoint: sh
-    command: -c 'minio server /data --console-address ":9001"' 
+    command: -c 'minio server /data --console-address ":${minio.console_address}"' 
     deploy:
       restart_policy:
         condition: on-failure
