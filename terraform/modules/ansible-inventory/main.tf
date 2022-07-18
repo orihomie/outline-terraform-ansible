@@ -15,8 +15,8 @@ resource "local_file" "ansible_cfg" {
 
 locals {
   database = {
-    url = "postgres://${postgres.user}:${postgres.password}@postgres:${postgres.port}/${postgres.db}",
-    test_url = "postgres://${postgres_test.user}:${postgres_test.password}@postgres:${postgres.port}/${postgres_test.db}"
+    url = "postgres://${var.postgres.user}:${var.postgres.password}@postgres:${var.postgres.port}/${var.postgres.db}",
+    test_url = "postgres://${var.postgres_test.user}:${var.postgres_test.password}@postgres:${var.postgres.port}/${var.postgres_test.db}"
   }
 }
 

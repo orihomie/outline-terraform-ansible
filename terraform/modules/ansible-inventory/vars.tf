@@ -26,5 +26,6 @@ variable "utils_secret" {
 variable "redis" {}
 variable "outline" {}
 variable "postgres" {}
+variable "postgres_test" {}
 variable "minio" {}
 variable "https_portal" {}
