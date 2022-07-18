@@ -15,7 +15,7 @@ Terraform module generate these files:
 
 Then Ansible playbook deploys this configuration to remote host(s).
 
-‼️ Not tested properly, use at your own riks.
+‼️ Not tested properly, use at your own risks.
 
 ## Prerequisites
 
