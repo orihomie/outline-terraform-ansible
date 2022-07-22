@@ -18,10 +18,27 @@ locals {
     url = "postgres://${var.postgres.user}:${var.postgres.password}@postgres:${var.postgres.port}/${var.postgres.db}",
     test_url = "postgres://${var.postgres_test.user}:${var.postgres_test.password}@postgres:${var.postgres.port}/${var.postgres_test.db}"
   }
+
+  aws = {
+    access_key_id           = var.minio.root_user
+    aws.secret_access_key   = var.minio.root_password
+    region                  = "us-east-1"
+    s3  = {
+      accelerate_url = ""
+      upload = {
+        bucket_url  = "https://wiki-storage.forcode.pro"
+        bucket_name = "outline"
+        max_size    = 26214400
+      }      
+      force_path_style = true
+      acl           = private
+    }
+  }
 }
 
 resource "local_file" "docker_env" {
   content = templatefile("${path.module}/templates/docker.env.tpl", {
+    aws:          local.aws
     secret_key:   var.secret_key
     utils_secret: var.utils_secret
     env_file:     var.env_file

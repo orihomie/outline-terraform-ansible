@@ -44,15 +44,15 @@ MINIO_ROOT_PASSWORD_FILE=${minio.root_password}                                 
 # A more detailed guide on setting up S3 is available here:
 # => https://wiki.generaloutline.com/share/125de1cc-9ff6-424b-8415-0d58c809a40f
 #
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_REGION=
-AWS_S3_ACCELERATE_URL=
-AWS_S3_UPLOAD_BUCKET_URL=
-AWS_S3_UPLOAD_BUCKET_NAME=
-AWS_S3_UPLOAD_MAX_SIZE=
-AWS_S3_FORCE_PATH_STYLE=
-AWS_S3_ACL=
+AWS_ACCESS_KEY_ID=${aws.access_key_id}
+AWS_SECRET_ACCESS_KEY=${aws.secret_access_key}
+AWS_REGION=${aws.region}
+AWS_S3_ACCELERATE_URL=${aws.s3.accelerate_url}
+AWS_S3_UPLOAD_BUCKET_URL=${aws.s3.upload.bucket_url}
+AWS_S3_UPLOAD_BUCKET_NAME=${aws.s3.upload.bucket_name}
+AWS_S3_UPLOAD_MAX_SIZE=${aws.s3.upload.max_size}
+AWS_S3_FORCE_PATH_STYLE=${aws.s3.force_path_style}
+AWS_S3_ACL=${aws.s3.acl}
 
 # –––––––––––––– AUTHENTICATION ––––––––––––––
 
