@@ -29,3 +29,4 @@ variable "postgres" {}
 variable "postgres_test" {}
 variable "minio" {}
 variable "https_portal" {}
+
