@@ -1,3 +1,7 @@
+variable "domain" {
+    type        = string
+}
+
 variable "remote_user" {
     description = "AWS hosts default user"
 }

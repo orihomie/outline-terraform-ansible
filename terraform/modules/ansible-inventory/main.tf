@@ -26,7 +26,7 @@ locals {
     s3  = {
       accelerate_url = ""
       upload = {
-        bucket_url  = "https://wiki-storage.forcode.pro"
+        bucket_url  = "https://wiki-storage.${var.domain}"
         bucket_name = "outline"
         max_size    = 26214400
       }      
@@ -34,6 +34,10 @@ locals {
       acl           = "private"
     }
   }
+
+  outline = merge(var.outline, {
+    url = "https://wiki.${var.domain}"
+  })
 }
 
 resource "local_file" "docker_env" {
@@ -42,7 +46,7 @@ resource "local_file" "docker_env" {
     secret_key:   var.secret_key
     utils_secret: var.utils_secret
     env_file:     var.env_file
-    outline:      var.outline
+    outline:      local.outline
     redis:        var.redis
     postgres:     var.postgres
     minio:        var.minio
