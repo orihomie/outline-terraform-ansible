@@ -1,6 +1,7 @@
 
 module "ansible_inventory" {
     source              = "./terraform/modules/ansible-inventory"
+    domain              = var.domain
     remote_user         = var.remote_user
     private_key_path    = var.private_key_path
     env_file            = var.env_file

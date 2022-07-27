@@ -1,3 +1,7 @@
+variable "domain" {
+    type        = string
+}
+
 variable "remote_user" {
     description = "AWS hosts default user"
 }
@@ -21,11 +25,6 @@ variable "secret_key" {
 
 variable "utils_secret" {
     type        = string
-}
-
-variable "aws" {
-    description = "AWS S3 settings"
-    type        = map
 }
 
 variable "redis" {}
