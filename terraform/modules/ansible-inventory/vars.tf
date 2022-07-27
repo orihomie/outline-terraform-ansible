@@ -23,11 +23,6 @@ variable "utils_secret" {
     type        = string
 }
 
-variable "aws" {
-    description = "AWS S3 settings"
-    type        = map
-}
-
 variable "redis" {}
 variable "outline" {}
 variable "postgres" {}

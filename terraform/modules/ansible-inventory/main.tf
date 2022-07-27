@@ -21,7 +21,7 @@ locals {
 
   aws = {
     access_key_id           = var.minio.root_user
-    aws.secret_access_key   = var.minio.root_password
+    secret_access_key       = var.minio.root_password
     region                  = "us-east-1"
     s3  = {
       accelerate_url = ""
@@ -31,7 +31,7 @@ locals {
         max_size    = 26214400
       }      
       force_path_style = true
-      acl           = private
+      acl           = "private"
     }
   }
 }
