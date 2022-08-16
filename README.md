@@ -34,3 +34,68 @@ Then Ansible playbook deploys this configuration to remote host(s).
 > ansible-playbook -i hosts.cfg ansible-deploy-outline.yml 
 6. ... (wait)
 7. PROFIT!
+
+
+## AWS Setup
+
+IAM Policy
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObjectAcl",
+                "s3:DeleteObject",
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::MAKE_SURE_TO_PUT_PROPER_BUCKET_NAME_HERE/*"
+        }
+    ]
+}
+```
+
+Create the policy above, create the user, attach that policy to that user.<br>
+
+CORS
+```
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "PUT",
+            "POST",
+            "DELETE",
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "https://yourdomain.com",
+        ],
+        "ExposeHeaders": [
+            "x-amz-server-side-encryption",
+            "x-amz-request-id",
+            "x-amz-id-2"
+        ]
+    },
+    {
+        "AllowedHeaders": [],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            "x-amz-server-side-encryption",
+            "x-amz-request-id",
+            "x-amz-id-2"
+        ]
+    }
+]
+```
